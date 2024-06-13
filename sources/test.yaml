@@ -1,34 +1,33 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-name: my-networkpolicy
-namespace: np-test
+  name: my-networkpolicy
+  namespace: np-test
 spec:
-podSelector:
-matchLabels:
-app: nginx
+  podSelector:
+    matchLabels:
+      app: nginx
 policyTypes:
 - Ingress
 - Egress
-
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-name: my-networkpolicy
-namespace: np-test
+  name: my-networkpolicy
+  namespace: np-test
 spec:
-podSelector:
-matchLabels:
-app: nginx
+  podSelector:
+    matchLabels:
+      app: nginx
 policyTypes:
 - Ingress
 - Egress
 ingress:
 - from:
-- namespaceSelector:
-matchLabels:
-team: np-test
+  - namespaceSelector:
+    matchLabels:
+      team: np-test
 ports:
 - port: 80
-protocol: TCP
+  protocol: TCP
